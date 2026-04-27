@@ -222,15 +222,11 @@ const Invitation: React.FC = () => {
 
   {/* CONTACT */}
   <div className="contact-box">
-  <p>
-    📞{" "}
-    <a href="tel:+919442029001">+91 94420 29001</a> |{" "}
-    <a href="tel:+919488468153">94884 68153</a>
-  </p>
+ 
 
   <p>
     📞{" "}
-    <a href="tel:+919750805464">+91 97508 05464</a>
+    <a href="tel:+919080634239">+91 9080634239</a>
   </p>
 </div>
 
