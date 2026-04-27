@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Intro.css";
 
-import leftDoorImg from "../assets/img/blackdoor.jpg";
-import rightDoorImg from "../assets/img/blackdoor.jpg";
+import leftDoorImg from "../assets/img/Front Stage Curtain.jpg";
+import rightDoorImg from "../assets/img/Front Stage Curtain.jpg";
 import bgImg from "../assets/img/bgs1.jpg";
 
 interface IntroProps {

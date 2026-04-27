@@ -181,8 +181,16 @@ width: 550px;
   height: 110px;
 
   border-radius: 50%;
-  background: linear-gradient(135deg, #f8caca, #f3a6b5);
+  /*background: linear-gradient(135deg, #f8caca, #f3a6b5);
 
+background:linear-gradient(135deg, #c43434, #e60b36);*/
+background-image: url("../assets/img/Front\ Stage\ Curtain.jpg");
+background-size: fit-content;        /* fill button */
+  background-position:center;   /* center focus */
+  background-repeat: no-repeat;
+
+  /* zoom effect */
+  transform: scale(1.05);
   display: flex;
   align-items: center;
   justify-content: center;

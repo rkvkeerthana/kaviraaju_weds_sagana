@@ -219,15 +219,20 @@ const Invitation: React.FC = () => {
     <p> May 28 — Engagement (After 6 PM)</p>
     <p> May 29 — Marriage (6 AM – 7 AM)</p>
   </div>
+<div className="contact-box">
 
-  {/* CONTACT */}
-  <div className="contact-box">
- 
+  <p className="contact-title"> Contact</p>
 
-  <p>
-    📞{" "}
-    <a href="tel:+919080634239">+91 9080634239</a>
-  </p>
+  <div className="contact-list">
+
+    <a href="tel:+919080634239">📞 +91 90806 34239</a>
+    <a href="tel:+919442029001">📞 +91 94420 29001</a>
+    <a href="tel:+919488468153">📞 +91 94884 68153</a>
+    <a href="tel:+919750805464">📞 +91 97508 05464</a>
+    <a href="tel:+919876543210">📞 +91 98765 43210</a>
+
+  </div>
+
 </div>
 
   {/* MAP */}

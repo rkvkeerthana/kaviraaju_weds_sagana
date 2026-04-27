@@ -69,7 +69,7 @@ h1, h2, h3, p {
  p {
   font-weight: 700;
  }
-.contact-box a {
+/*.contact-box a {
   color: #e91e63;
   text-decoration: none;
   font-weight: 600;
@@ -77,11 +77,52 @@ h1, h2, h3, p {
 
 .contact-box a:hover {
   text-decoration: underline;
-}
+}*/
 
 h2,.contact-box{
   color: #c2185b;
   font-weight: 700;
+}
+.contact-box {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.contact-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #e91e63;
+}
+
+/* GRID */
+.contact-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* TEL BUTTON */
+.contact-list a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  
+
+  text-decoration: none;
+  color: #5a3e36;
+  font-weight: 500;
+
+  
+}
+
+/* HOVER */
+.contact-list a:hover {
+  background: #ff6f91;
+  transform: scale(1.05);
 }
 /* ================= HERO ================= */
 .hero {
@@ -130,6 +171,7 @@ h2,.contact-box{
 .story h2 {
   font-size: 20px;
   margin-top: -250px;
+ 
 }
 
 .story p {
@@ -299,7 +341,7 @@ h2,.contact-box{
 /* CONTACT BOX */
 .contact-box {
   
-  padding: 20px;
+ 
  
   margin-bottom: 20px;
   width: 100%;
@@ -720,9 +762,9 @@ font-size: 15px;
 
   padding: 45px 25px;
  
-
+ text-transform:uppercase;
   color: #c2185b;
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 600;
 
   margin-bottom: -55px;
