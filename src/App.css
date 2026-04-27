@@ -1,0 +1,58 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* FULL SCREEN WRAPPER */
+.app-frame {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #f3e5e5;
+  overflow: hidden;
+ 
+}
+
+/* 🔥 STRICT MOBILE VIEW */
+.app-mobile {
+  width: 390px;     /* 📱 fixed mobile width */
+  height: 100vh;
+
+  background: #fff;
+  overflow-y: auto;
+
+  box-shadow: 0 0 40px rgba(0,0,0,0.2);
+  border-radius: 25px;
+
+  position: relative;
+}
+
+/* REMOVE RESPONSIVE BEHAVIOR COMPLETELY */
+@media (max-width: 500px) {
+  .app-mobile {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+/* ================= SMOOTH SCROLL ================= */
+.app-mobile {
+  scroll-behavior: smooth;
+
+  overflow-y: auto;
+
+  /* 🔥 HIDE SCROLLBAR (ALL DEVICES) */
+  -ms-overflow-style: none;     /* IE + Edge */
+  scrollbar-width: none;        /* Firefox */
+}
+
+/* Chrome, Safari */
+.app-mobile::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,731 @@
+/* RESET (IMPORTANT FIX FOR GAPS) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* MAIN CONTAINER */
+.invite-container {
+  width: 100%;
+  overflow-x: hidden;
+  background: #fff5f5;
+  color: #5a3e36;
+}
+
+/* SECTION BASE */
+.section {
+  min-height: 100vh;
+  width: 100%;
+  padding: 60px 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  /* BACKGROUND FIX */
+  background-size: cover;        /* fills screen */
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+}
+
+/* OVERLAY (FOR READABILITY) */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.65);
+  z-index: 0;
+}
+.overlay1 {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.65);
+  z-index: 0;
+}
+
+/* CONTENT ABOVE OVERLAY */
+.section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* REMOVE DEFAULT HEADING SPACES */
+h1, h2, h3, p {
+  margin: 0;
+  
+}
+ p {
+  font-weight: 700;
+ }
+.contact-box a {
+  color: #e91e63;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-box a:hover {
+  text-decoration: underline;
+}
+
+h2,.contact-box{
+  color: #c2185b;
+  font-weight: 700;
+}
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+}
+
+.hero-img {
+  width: 220px;
+  border-radius: 70px;
+  margin-bottom: 10px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.logo {
+  font-size: 40px;
+  letter-spacing: 5px;
+  margin-top: 55px;
+  color: #c2185b;
+}
+
+.invite-text {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.invite-text span {
+  color: #c2185b;
+}
+
+.sub-text {
+  font-size: 16px;
+  max-width: 600px;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-top: 10px;
+}
+
+.quote {
+  margin-top: 15px;
+  font-style: italic;
+  color: #a0525c;
+}
+
+/* ================= STORY ================= */
+.story h2 {
+  font-size: 30px;
+  margin-top: -250px;
+}
+
+.story p {
+  font-size: 16px;
+  max-width: 600px;
+  line-height: 1.6;
+  
+}
+
+/* ================= EVENT ================= */
+/* CALENDAR */
+.calendar-container {
+  margin-top: 20px;
+   padding: 20px;
+  border-radius: 15px;
+}
+
+.calendar-header {
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.month-year {
+  font-weight: bold;
+  font-size: 18px;
+  padding: 40px;
+}
+
+.day-labels {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-size: 12px;
+  margin-top: 5px;
+  gap: 37px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+
+/* ================= GALLERY ================= */
+.bottom-gallery {
+  width: 100%;
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: center;   /* ✅ CENTER FIX */
+  align-items: center;
+
+  overflow: hidden;
+  position: relative;
+}
+
+/* SLIDER TRACK */
+.gallery-track {
+  display: flex;
+  gap: 12px;
+
+  animation: slideGallery 18s linear infinite;
+
+  width: max-content; /* important */
+}
+
+/* EACH IMAGE */
+.gallery-track img {
+  width: 160px;
+  height: 200px;
+
+  object-fit: contain;   /* ✅ NO CROP */
+  border-radius: 15px;
+
+  flex-shrink: 0;        /* prevent shrink */
+}
+
+/* ANIMATION */
+@keyframes slideGallery {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ================= SLIDER ================= */
+.slider {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+/* IMAGE */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;   /* ✅ NO CROP */
+  opacity: 0;
+
+  transition: opacity 1s ease-in-out;
+}
+
+/* ACTIVE IMAGE */
+.slide.active {
+  opacity: 1;
+}
+/* ================= VENUE SECTION ================= */
+.venue-section {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  color: #5a3e36;
+}
+
+/* OVERLAY */
+.venue-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgb(218 176 176 / 31%);
+  z-index: 0;
+}
+
+/* CONTENT */
+.venue-content {
+  background: rgba(255, 255, 255, 0.15);
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* TITLE */
+.venue-title {
+  font-size: 32px;
+  color: #c2185b;
+  margin-bottom: 10px;
+}
+
+/* PLACE */
+.venue-place {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.venue-location {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* CONTACT BOX */
+.contact-box {
+  
+  padding: 20px;
+ 
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 350px;
+  
+}
+
+.contact-box h3 {
+  margin-bottom: 10px;
+  color: #c2185b;
+}
+
+.contact-item {
+  margin: 10px 0;
+}
+
+.contact-item p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.contact-item a {
+  color: #c2185b;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* MAP */
+.map-container {
+  width: 100%;
+  max-width: 400px;
+
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .venue-title {
+    font-size: 24px;
+  }
+
+  .contact-box {
+    width: 100%;
+  }
+}
+
+/* ================= ANIMATION ================= */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .hero-img {
+    width: 180px;
+  }
+
+  .logo {
+    font-size: 32px;
+  }
+
+  .invite-text {
+    font-size: 22px;
+  }
+
+  .sub-text {
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 100px 15px;
+  }
+}
+
+/* ================= TABLET & DESKTOP ================= */
+@media (min-width: 768px) {
+  .hero-img {
+    width: 320px;
+  }
+
+  .logo {
+    font-size: 50px;
+  }
+
+  .invite-text {
+    font-size: 34px;
+  }
+
+  /*.section {
+    padding: 100px;
+  }*/
+}
+
+/* ================= DATE RUNNING SECTION ================= */
+.date-running {
+  position: relative;
+  text-align: center;
+  color: #5a3e36;
+}
+
+/* SOFT OVERLAY */
+.overlay-soft {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 240, 240, 0.7);
+  backdrop-filter: blur(0.4px);
+  z-index: 0;
+}
+
+/* CENTER PNG IMAGE */
+.date-overlay-img {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 20px;
+}
+
+.date-overlay-img img {
+  width: 140px;
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* SIGNATURE */
+.signature-area {
+  z-index: 1;
+  margin-bottom: 25px;
+}
+
+.cursive-signature {
+  font-family: "Dancing Script", cursive;
+  font-size: 28px;
+  color: #c2185b;
+  line-height: 1.4;
+}
+
+/* TYPING EFFECT */
+.typing {
+  animation: fadeText 2s ease-in-out infinite alternate;
+}
+
+@keyframes fadeText {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}
+
+/* COUNTDOWN */
+.countdown-container {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 1;
+  margin-bottom: 190px;
+}
+
+/* EACH BOX */
+.countdown-item {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 12px;
+  border-radius: 12px;
+  min-width: 70px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* LABEL */
+.label {
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+/* NUMBER */
+.number {
+  font-size: 20px;
+  font-weight: bold;
+  color: #c2185b;
+}
+
+/* FLOAT ANIMATION */
+@keyframes float {
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .date-overlay-img img {
+    width: 110px;
+  }
+
+  .cursive-signature {
+    font-size: 22px;
+  }
+
+  .countdown-item {
+    min-width: 60px;
+    padding: 10px;
+  }
+
+  .number {
+    font-size: 18px;
+  }
+}
+/* ================= BACKGROUND FIX ================= */
+.wedding-thankyou-block {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* DARK OVERLAY (KEY FIX) */
+.bg-dark-overlay {
+  position: absolute;
+  inset: 0;
+  background:#ffb6c16b;
+  z-index: 0;
+}
+
+/* CONTENT ABOVE OVERLAY */
+.thankyou-content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff5f5; /* makes text visible */
+  text-align: center;
+}
+
+/* TOP DECOR */
+.top-decor {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px;
+}
+
+.decor-left,
+.decor-right {
+  width: 70px;
+  opacity: 0.9;
+}
+
+/* CENTER IMAGE */
+.center-decor img {
+  width: 120px;
+  margin-top: 20px;
+}
+
+/* TITLE */
+.thankyou-title {
+  margin-top: 20px;
+  font-size: 28px;
+  color: #c2185b; /* soft wedding pink */
+  
+}
+
+/* TEXT */
+.thankyou-text {
+  margin-top: 10px;
+  font-size: 18px;
+  max-width: 500px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+/* BOTTOM */
+.bottom-decor img {
+  width: 60px;
+  margin-top: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .decor-left,
+  .decor-right {
+    width: 45px;
+  }
+
+  .center-decor img {
+    width: 90px;
+  }
+
+  .thankyou-text {
+    font-size: 16px;
+  }
+}
+.ceremony-note {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #5a3e36;
+  text-align: center;
+}
+
+/* clickable highlight word */
+.highlight-click {
+  color: #c2185b;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+
+.highlight-click:hover {
+  color: #e91e63;
+  transform: scale(1.05);
+}
+/* DATE BOX */
+.date-wrapper {
+  position: relative;
+  padding: 10px;
+  border-radius: 10px;
+  background: #ffeaea;
+  text-align: center;
+}
+
+/* HIGHLIGHT BOTH DATES */
+.event-date {
+  background: linear-gradient(135deg, #ff9ecb, #ffc1dc);
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(194, 24, 91, 0.5);
+}
+
+/* DIFFERENT COLORS */
+.date-wrapper.engagement {
+  background: linear-gradient(135deg, #f48fb1, #f06292);
+}
+
+.date-wrapper.wedding {
+  background: linear-gradient(135deg, #ec407a, #c2185b);
+}
+.engagement-date{
+  background-color: #ec407a8c;
+}
+.wedding-date{
+  background-color: #f0629273;
+}
+
+/* ICON */
+.event-icon {
+  position: absolute;
+  top: -8px;
+  right: -5px;
+  font-size: 14px;
+}
+
+/* TOOLTIP ALWAYS VISIBLE */
+.tooltip {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #c2185b;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* CLICK TEXT */
+.highlight-click {
+  color: #c2185b;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.ceremony-time
+{
+  padding: 20px;
+}
+.event-timeline {
+  background-image: url("../assets/img/Luxurytag.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 20px 25px;
+  height:90px;
+font-size: 15px;
+  max-width: 320px;   /* controls box size */
+  margin: 0 auto;
+
+  color: #5a3e36;
+  text-align: center;
+
+  position: relative;
+  overflow: hidden;
+
+ 
+}
+.weds {
+  display: inline-block; /* important */
+
+  background-image: url("../assets/img/wedstag.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 45px 25px;
+ 
+
+  color: #c2185b;
+  font-size: 16px;
+  font-weight: 600;
+
+  margin-bottom: -55px;
+
+  
+}

@@ -1,0 +1,264 @@
+.intro-container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: #fdecec;
+}
+
+/* ================= DOORS ================= */
+.door-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  perspective: 1200px;
+}
+
+.door {
+  width: 50%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 1.2s ease;
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.2);
+}
+
+.left-door {
+  transform-origin: left;
+}
+
+.right-door {
+  transform-origin: right;
+}
+
+/* CENTER RING */
+.center-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 10;
+  animation: pulse 1.5s infinite;
+}
+
+.center-ring img {
+  width: 90px;
+}
+
+@keyframes pulse {
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* ================= STEP 2 ================= */
+.wedding-preview {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+/* CLEAN OVERLAY */
+.overlay-card {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  color: white;
+  z-index: 2;
+}
+
+/* IMAGE */
+.overlay-img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, 0.6);
+  border-color:#e796b6;
+}
+
+/* NAME */
+.bride-groom {
+  font-family: cursive;
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+/* DETAILS */
+.details {
+  font-size: 16px;
+  color: #393636;
+  line-height: 1.6;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* LOADING TEXT */
+.auto-text {
+  font-size: 14px;
+  color: #fff;
+  opacity: 0.8;
+  animation: fade 1s infinite alternate;
+}
+
+@keyframes fade {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+/* ================= STEP 3 ================= */
+.final-intro {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.input-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 280px;
+}
+
+.input-card input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid hotpink;
+  border-radius: 8px;
+}
+
+.input-card button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: hotpink;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+/* CENTER WRAPPER */
+.center-action {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* RING IMAGE */
+.ring-img {
+  width: 90px;
+  margin-bottom: 10px;
+  animation: float 2s ease-in-out infinite;
+}
+
+/* ROUND BUTTON */
+.open-btn {
+  width: 110px;
+  height: 110px;
+
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f8caca, #f3a6b5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+  animation: pulse 1.5s infinite;
+}
+
+/* FLOAT RING */
+@keyframes float {
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* BUTTON PULSE */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* HOVER EFFECT */
+.center-action:hover .open-btn {
+  background: linear-gradient(135deg, #e91e63, #f06292);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .open-btn {
+    width: 90px;
+    height: 70px;
+    font-size: 12px;
+  }
+
+  .ring-img {
+    width: 70px;
+  }
+}
+/* DETAILS CONTAINER */
+.details {
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #5a3e36;
+}
+
+/* LINE STYLE WITH "|" */
+.event-line {
+  margin: 6px 0;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* HIGHLIGHT TEXT */
+.event-line span {
+  color: #c2185b;
+  font-weight: bold;
+}
+
+/* VENUE STYLE */
+.venue {
+  margin-top: 10px;
+  font-size: 14px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
