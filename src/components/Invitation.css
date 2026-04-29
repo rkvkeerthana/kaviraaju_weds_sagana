@@ -200,15 +200,27 @@ h2,.contact-box{
   font-size: 18px;
   padding: 40px;
 }
-
 .day-labels {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   font-size: 12px;
   margin-top: 5px;
-  gap: 37px;
+  gap: 37px; /* default → mobile */
 }
 
+/* 📱 Tablet */
+@media (min-width: 768px) {
+  .day-labels {
+    gap: 45px;
+  }
+}
+
+/* 💻 Desktop */
+@media (min-width: 1024px) {
+  .day-labels {
+    gap: 57px;
+  }
+}
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -404,6 +416,7 @@ h2,.contact-box{
 
   .logo {
     font-size: 32px;
+            margin-top: 110px;
   }
 
   .invite-text {
@@ -427,6 +440,7 @@ h2,.contact-box{
 
   .logo {
     font-size: 50px;
+            margin-top: 110px;
   }
 
   .invite-text {
@@ -672,8 +686,7 @@ h2,.contact-box{
   position: relative;
   padding: 10px;
   border-radius: 10px;
-  background: #ffeaea;
-  text-align: center;
+    text-align: center;
 }
 
 /* HIGHLIGHT BOTH DATES */
@@ -693,10 +706,12 @@ h2,.contact-box{
   background: linear-gradient(135deg, #ec407a, #c2185b);
 }
 .engagement-date{
-  background-color: #ec407a8c;
+  border:2px dashed #ec407a8c;
+  color: #c2185b;
 }
 .wedding-date{
-  background-color: #f0629273;
+  border:2px solid  #f0629273;
+  color: #e91e63;
 }
 
 /* ICON */
@@ -753,7 +768,7 @@ font-size: 15px;
  
 }
 .weds {
-  display: inline-block; /* important */
+  display: inline-block;
 
   background-image: url("../assets/img/wedstag.png");
   background-size: cover;
@@ -761,13 +776,149 @@ font-size: 15px;
   background-repeat: no-repeat;
 
   padding: 45px 25px;
- 
- text-transform:uppercase;
+
+  text-transform: uppercase;
   color: #c2185b;
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 600;
 
   margin-bottom: -55px;
+}
 
+/* 🔥 Highlight K & S */
+.big-letter {
+  font-size: 30px;       /* bigger than others */
+  font-weight: 800;
+  color: #c2185b;        /* darker for contrast */
+
+  margin-right: 2px;
+}
+.story  {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  /* DEFAULT (fallback) */
+  background-image: url("../assets/img/inv2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ================= TABLET ================= */
+@media (min-width: 768px) {
+ .story {
+    background-image: url("../assets/img/storybgst.png")!important;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* ================= DESKTOP ================= */
+@media (min-width: 1024px) {
+  .story  {
+    background-image: url("../assets/img/storybgst.png")!important;
+
+    /* premium look */
+    background-size: cover;
+    background-position: center top;
+  }
+}
+.event  {
+  width: 100%;
   
+  position: relative;
+  overflow: hidden;
+
+  /* DEFAULT (fallback) */
+  background-image: url("../assets/img/post.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ================= TABLET ================= */
+@media (min-width: 768px) {
+ .event {
+    background-image: url("../assets/img/malaibg.png")!important;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* ================= DESKTOP ================= */
+@media (min-width: 1024px) {
+  .event  {
+    background-image: url("../assets/img/malaibg.png")!important;
+
+    /* premium look */
+    background-size: cover;
+    background-position: center top;
+  }
+}
+.date-running  {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  /* DEFAULT (fallback) */
+  background-image: url("../assets/img/bgs4.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ================= TABLET ================= */
+@media (min-width: 768px) {
+ .date-running {
+    background-image: url("../assets/img/pairbg.png")!important;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* ================= DESKTOP ================= */
+@media (min-width: 1024px) {
+  .date-running  {
+    background-image: url("../assets/img/pairbg.png")!important;
+
+    /* premium look */
+    background-size: cover;
+    background-position: center top;
+  }
+}
+.date-running  {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  /* DEFAULT (fallback) */
+  background-image: url("../assets/img/bgs4.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ================= TABLET ================= */
+@media (min-width: 768px) {
+ .hero {
+    background-image: url("../assets/img/frontbanner.png")!important;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* ================= DESKTOP ================= */
+@media (min-width: 1024px) {
+  .hero {
+    background-image: url("../assets/img/frontbanner.png")!important;
+
+    /* premium look */
+    background-size: cover;
+    background-position: center top;
+     
+  }
 }

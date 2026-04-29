@@ -6,7 +6,7 @@ import coupleImg from "../assets/img/pinkswing.png";
 
 // BACKGROUNDS
 import heroBg from "../assets/img/invi_bg.jpg";
-import storyBg from "../assets/img/inv2.jpg";
+//import storyBg from "../assets/img/inv2.jpg";
 import eventBg from "../assets/img/post.jpg";
 import venueBg from "../assets/img/Soft blush with floating hearts Wallpaper.jpg";
 import DateRunningBg from "../assets/img/bgs4.jpg";
@@ -47,21 +47,46 @@ const Invitation: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // 📅 GOOGLE CALENDAR (WITH REMINDER)
-  const saveToCalendar = (date: Date, title: string) => {
-    const start = date.toISOString().replace(/-|:|\.\d+/g, "");
-    const endDate = new Date(date.getTime() + 2 * 60 * 60 * 1000);
-    const end = endDate.toISOString().replace(/-|:|\.\d+/g, "");
+  const formatDate = (date: Date) => {
+  const pad = (n: number) => n.toString().padStart(2, "0");
 
-    const url = `https://calendar.google.com/calendar/render?action=TEMPLATE
-      &text=${encodeURIComponent(title)}
-      &dates=${start}/${end}
-      &details=${encodeURIComponent("Reminder set 2 days before 💖")}
-      &trp=false`;
+  return (
+    date.getFullYear() +
+    pad(date.getMonth() + 1) +
+    pad(date.getDate()) +
+    "T" +
+    pad(date.getHours()) +
+    pad(date.getMinutes()) +
+    pad(date.getSeconds())
+  );
+};
+const saveToCalendar = (date: Date, eventName: string) => {
+  // ✅ FIX TIMEZONE ISSUE (IMPORTANT)
+  const offset = date.getTimezoneOffset() * 60000;
+  const localISOTime = new Date(date.getTime() - offset)
+    .toISOString()
+    .slice(0, 19)
+    .replace(/[-:]/g, "");
 
-    window.open(url, "_blank");
-  };
+  const endDate = new Date(date.getTime() + 2 * 60 * 60 * 1000);
+  const localEndTime = new Date(endDate.getTime() - offset)
+    .toISOString()
+    .slice(0, 19)
+    .replace(/[-:]/g, "");
 
+  const title = `Kaviraaju weds Sagana 💖 - ${eventName}`;
+
+  const url = `https://calendar.google.com/calendar/render?action=TEMPLATE
+  &text=${encodeURIComponent(title)}
+  &dates=${localISOTime}/${localEndTime}
+  &details=${encodeURIComponent("Join us for the celebration!")}
+  &location=${encodeURIComponent("CSK Mahal, Madurai")}
+  &trp=false
+  &recur=RRULE:FREQ=DAILY;COUNT=1
+  &reminders=1440,60`; // ✅ 1 day + 1 hour
+
+  window.open(url.replace(/\s/g, ""), "_blank");
+};
   // ⏳ COUNTDOWN (TO WEDDING)
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -94,10 +119,10 @@ const Invitation: React.FC = () => {
       <section className="section hero" style={{ backgroundImage: `url(${heroBg})` }}>
         <div className="overlay" />
 
-        <h1 className="logo">K | S</h1>
+        <h1 className="logo">K  💖 S</h1>
 
         <h2 className="invite-text">
-          We Invite You, <span>{name}</span> 💖
+          We Invite You, <span>{name}</span> 
         </h2>
 
         <p className="sub-text">
@@ -112,14 +137,17 @@ const Invitation: React.FC = () => {
       </section>
 
       {/* STORY */}
-      <section className="section story" style={{ backgroundImage: `url(${storyBg})` }}>
+      <section className="section story" >
         <div className="overlay" />
 
         <h2>Our Story</h2>
         <p>
           A beautiful journey that started with friendship,
           grew into love, and now celebrates forever together </p><br/>
-        <h3 className="weds"  >Kaviraaju weds Sagana</h3>
+       <h3 className="weds">
+  <span className="big-letter">K</span>aviraaju weds{" "}
+  <span className="big-letter">S</span>agana
+</h3>
       </section>
 
       {/* EVENT */}
@@ -147,27 +175,41 @@ const Invitation: React.FC = () => {
             const isWedding = day === 29;
 
             return (
-              <div
-                key={i}
-                className={`date-wrapper 
-                  ${isEngagement ? "engagement-date" : ""} 
-                  ${isWedding ? "wedding-date" : ""}`}
-                onClick={() => {
-                  if (isEngagement)
-                    saveToCalendar(engagementDate, "Engagement 💍 - May 28, 6PM");
+                 <div
+        key={i}
+        className={`date-wrapper 
+          ${isEngagement ? "engagement-date" : ""} 
+          ${isWedding ? "wedding-date" : ""}`}
 
-                  if (isWedding)
-                    saveToCalendar(weddingDate, "Wedding 💖 - May 29, 6AM");
-                }}
-              >
-                {day}
+        onClick={() => {
+          if (!isEngagement && !isWedding) return;
 
-                {isEngagement && <span className="tag">💍</span>}
-                {isWedding && <span className="tag">💖</span>}
-              </div>
+          if (isEngagement) {
+            saveToCalendar(
+              new Date("2026-05-28T18:00:00+05:30"),
+              "Engagement 💍 - May 28, 6PM"
             );
-          })}
-        </div>
+          } else {
+            saveToCalendar(
+              new Date("2026-05-29T06:00:00+05:30"),
+              "Wedding 💖 - May 29, 6AM"
+            );
+          }
+        }}
+
+        style={{
+          cursor: isEngagement || isWedding ? "pointer" : "default",
+          opacity: isEngagement || isWedding ? 1 : 0.5,
+        }}
+      >
+        {day}
+
+        {isEngagement && <span className="tag">💍</span>}
+        {isWedding && <span className="tag">💖</span>}
+      </div>
+    );
+  })}
+</div>
 
         {/* INFO */}
         <p className="ceremony-time">
