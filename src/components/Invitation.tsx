@@ -47,19 +47,19 @@ const Invitation: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const formatDate = (date: Date) => {
-  const pad = (n: number) => n.toString().padStart(2, "0");
+  //const formatDate = (date: Date) => {
+  //const pad = (n: number) => n.toString().padStart(2, "0");
 
-  return (
-    date.getFullYear() +
-    pad(date.getMonth() + 1) +
-    pad(date.getDate()) +
-    "T" +
-    pad(date.getHours()) +
-    pad(date.getMinutes()) +
-    pad(date.getSeconds())
-  );
-};
+  //return (
+   // date.getFullYear() +
+   // pad(date.getMonth() + 1) +
+   // pad(date.getDate()) +
+    //"T" +
+    //pad(date.getHours()) +
+    //pad(date.getMinutes()) +
+    //pad(date.getSeconds())
+ // );
+//};
 const saveToCalendar = (date: Date, eventName: string) => {
   // ✅ FIX TIMEZONE ISSUE (IMPORTANT)
   const offset = date.getTimezoneOffset() * 60000;
@@ -184,17 +184,28 @@ const saveToCalendar = (date: Date, eventName: string) => {
         onClick={() => {
           if (!isEngagement && !isWedding) return;
 
+          //if (isEngagement) {
+           // saveToCalendar(
+             // new Date("2026-05-28T18:00:00+05:30"),
+             // "Engagement 💍 - May 28, 6PM"
+           // );
+         // } else {
+           // saveToCalendar(
+             // new Date("2026-05-29T06:00:00+05:30"),
+              //"Wedding 💖 - May 29, 6AM"
+            //);
+          //}
           if (isEngagement) {
-            saveToCalendar(
-              new Date("2026-05-28T18:00:00+05:30"),
-              "Engagement 💍 - May 28, 6PM"
-            );
-          } else {
-            saveToCalendar(
-              new Date("2026-05-29T06:00:00+05:30"),
-              "Wedding 💖 - May 29, 6AM"
-            );
-          }
+  saveToCalendar(
+    engagementDate,   // ✅ changed here
+    "Engagement 💍 - May 28, 6PM"
+  );
+} else {
+  saveToCalendar(
+    weddingDate,      // ✅ changed here
+    "Wedding 💖 - May 29, 6AM"
+  );
+}
         }}
 
         style={{
